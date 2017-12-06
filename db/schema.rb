@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20171205203550) do
   create_table "users", force: :cascade do |t|
     t.string   "name",                                null: false
     t.string   "description",                         null: false
-    t.string   "github"
+    t.string   "github_url"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
