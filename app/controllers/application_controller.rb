@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :set_search
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
@@ -13,6 +14,10 @@ class ApplicationController < ActionController::Base
 
     def after_sign_up_path_for(current_user)
       posts_path
+    end
+
+    def set_search
+      @q = User.ransack(params[:q])
     end
 
   private
